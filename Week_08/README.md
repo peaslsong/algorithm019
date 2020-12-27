@@ -1,12 +1,11 @@
-学习笔记
-不同排序算法的总结：
+<div>不同排序算法的总结：
 1.	选择排序：
 def selectSort(arr):
     minVal = arr[0]
     for i in range(len(arr) - 1):
         minIndex = i
         for j in range(i + 1, len(arr)):
-            if arr[j] < arr[minIndex]:
+            if arr[j] &lt; arr[minIndex]:
                 minIndex = j
         temp = arr[i]
         arr[i] = arr[minIndex]
@@ -18,7 +17,7 @@ def insertSort(arr):
     for i in range(1, len(arr)):
         preIndex = i - 1
         current = arr[i]
-        while preIndex >= 0 and arr[preIndex] > current:
+        while preIndex &gt;= 0 and arr[preIndex] &gt; current:
             arr[preIndex + 1] = arr[preIndex]
             preIndex -= 1
         arr[preIndex + 1] = current
@@ -28,7 +27,7 @@ def insertSort(arr):
 def bubbleSort(arr):
     for i in range(len(arr) - 1):
         for j in range(i + 1, len(arr)):
-            if arr[i] > arr[j]:
+            if arr[i] &gt; arr[j]:
                 arr[i], arr[j] = arr[j], arr[i]
     return arr
 
@@ -37,7 +36,7 @@ def partition(arr, begin, end):
     pivot = end
     counter = begin
     for i in range(begin, end):
-        if arr[i] < arr[pivot]:
+        if arr[i] &lt; arr[pivot]:
             arr[counter], arr[i] = arr[i], arr[counter]
             counter += 1
     arr[pivot], arr[counter] = arr[counter], arr[pivot]
@@ -45,7 +44,7 @@ def partition(arr, begin, end):
 
 
 def quickSort(arr, begin, end):
-    if end <= begin:
+    if end &lt;= begin:
         return
     pivot = partition(arr, begin, end)
     quickSort(arr, begin, pivot - 1)
@@ -57,8 +56,8 @@ def merge(array, left, mid, right):
     i = left
     j = mid + 1
     k = 0
-    while i <= mid and j <= right:
-        if array[i] <= array[j]:
+    while i &lt;= mid and j &lt;= right:
+        if array[i] &lt;= array[j]:
             temp[k] = array[i]
             k += 1
             i += 1
@@ -66,11 +65,11 @@ def merge(array, left, mid, right):
             temp[k] = array[j]
             k += 1
             j += 1
-    while i <= mid:
+    while i &lt;= mid:
         temp[k] = array[i]
         k += 1
         i += 1
-    while j <= right:
+    while j &lt;= right:
         temp[k] = array[j]
         k += 1
         j += 1
@@ -79,10 +78,12 @@ def merge(array, left, mid, right):
 
 
 def mergeSort(array, left, right):
-    if right <= left:
+    if right &lt;= left:
         return
-    mid = (left + right) >> 1
+    mid = (left + right) &gt;&gt; 1
     mergeSort(array, left, mid)
     mergeSort(array, mid + 1, right)
     merge(array, left, mid, right)
     return array
+
+<br /></div>
